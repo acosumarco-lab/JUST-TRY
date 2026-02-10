@@ -191,9 +191,6 @@ const testimonialTrack = document.getElementById('testimonialTrack');
 const prevBtn = document.getElementById('prevTestimonial');
 const nextBtn = document.getElementById('nextTestimonial');
 const contactForm = document.getElementById('contactForm');
-const projectModal = document.getElementById('projectModal');
-const modalClose = document.getElementById('modalClose');
-const modalBody = document.getElementById('modalBody');
 const backToTop = document.getElementById('backToTop');
 
 
@@ -390,90 +387,200 @@ setInterval(() => {
 }, 6000);
 
 
-// ===== Project Modal =====
+// ===== Case Study Overlay =====
+const caseStudyOverlay = document.getElementById('caseStudyOverlay');
+const caseStudyClose = document.getElementById('caseStudyClose');
+const caseStudyScroll = document.getElementById('caseStudyScroll');
+const csCategory = document.getElementById('csCategory');
+const csTitle = document.getElementById('csTitle');
+const csDescription = document.getElementById('csDescription');
+const csCredits = document.getElementById('csCredits');
+const csGallery = document.getElementById('csGallery');
+const caseStudyHero = document.getElementById('caseStudyHero');
+
 const projectData = {
     1: {
         title: 'Obsidian Luxury',
-        description: 'A complete rebrand for a premium lifestyle company, transforming their visual identity into a sleek, monochromatic presence that speaks sophistication without a single word.',
         category: 'Branding',
-        client: 'Obsidian Luxury',
-        year: '2024'
+        description: 'A complete rebrand for a premium lifestyle company, transforming their visual identity into a sleek, monochromatic presence that speaks sophistication without a single word. Every touchpoint — from business cards to flagship store signage — was reimagined to convey understated power.',
+        role: 'Brand Strategy, Visual Identity, Art Direction',
+        year: '2024',
+        team: 'VNYX Creative Team',
+        heroGradient: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 40%, #111 100%)',
+        gallery: [
+            { icon: '◆', class: 'gallery-item-wide' },
+            { icon: '◇', class: '' },
+            { icon: '□', class: 'gallery-item-tall' },
+            { icon: '△', class: '' },
+            { icon: '○', class: 'gallery-item-wide' },
+            { icon: '⬡', class: '' },
+        ]
     },
     2: {
         title: 'Noir Finance',
-        description: 'A dark-mode-first fintech dashboard that makes complex financial data feel elegant and approachable. Clean data visualization meets premium aesthetics.',
         category: 'UI/UX Design',
-        client: 'Noir Finance',
-        year: '2024'
+        description: 'A dark-mode-first fintech dashboard that makes complex financial data feel elegant and approachable. We redesigned the entire user journey — from onboarding to advanced analytics — with a focus on clean data visualization that meets premium aesthetics. The result: a 40% increase in daily active usage.',
+        role: 'UX Research, UI Design, Prototyping',
+        year: '2024',
+        team: 'VNYX Digital Team',
+        heroGradient: 'linear-gradient(135deg, #0a0a0a 0%, #151515 40%, #0d0d0d 100%)',
+        gallery: [
+            { icon: '□', class: '' },
+            { icon: '◇', class: 'gallery-item-tall' },
+            { icon: '△', class: 'gallery-item-wide' },
+            { icon: '○', class: '' },
+            { icon: '◆', class: '' },
+            { icon: '⬡', class: 'gallery-item-wide' },
+        ]
     },
     3: {
         title: 'Kinetic Reel',
-        description: 'Our studio showreel showcasing motion design capabilities — from subtle micro-animations to full cinematic sequences.',
         category: 'Motion Design',
-        client: 'VNYX Internal',
-        year: '2024'
+        description: 'Our annual studio showreel — a cinematic exploration of movement, form, and rhythm. From subtle micro-animations to full 3D sequences, this reel captures the essence of what we do: bringing stillness to life. Featured at Jakarta Design Week 2024.',
+        role: 'Motion Design, 3D Animation, Sound Design',
+        year: '2024',
+        team: 'VNYX Motion Lab',
+        heroGradient: 'linear-gradient(135deg, #121212 0%, #0a0a0a 40%, #161616 100%)',
+        gallery: [
+            { icon: '▷', class: 'gallery-item-wide' },
+            { icon: '△', class: 'gallery-item-tall' },
+            { icon: '◇', class: '' },
+            { icon: '□', class: 'gallery-item-wide' },
+            { icon: '○', class: '' },
+            { icon: '◆', class: '' },
+        ]
     },
     4: {
         title: 'Vertex Studio',
-        description: '3D product visualization for a tech hardware company, turning engineering blueprints into photorealistic renders and interactive walkthroughs.',
         category: '3D Visualization',
-        client: 'Vertex Studio',
-        year: '2024'
+        description: 'Photorealistic 3D product visualization for a cutting-edge tech hardware company. We transformed engineering blueprints into stunning visual narratives — interactive walkthroughs, hero shots, and exploded views that reveal the beauty of precision engineering.',
+        role: '3D Modeling, Rendering, Creative Direction',
+        year: '2024',
+        team: 'VNYX 3D Division',
+        heroGradient: 'linear-gradient(135deg, #0d0d0d 0%, #181818 40%, #0a0a0a 100%)',
+        gallery: [
+            { icon: '⬡', class: 'gallery-item-tall' },
+            { icon: '◆', class: 'gallery-item-wide' },
+            { icon: '◇', class: '' },
+            { icon: '△', class: '' },
+            { icon: '□', class: 'gallery-item-wide' },
+            { icon: '○', class: '' },
+        ]
     },
     5: {
         title: 'Monolith Co.',
-        description: 'Brand identity for an architecture firm specializing in brutalist design. The identity mirrors their philosophy — bold, structural, unapologetic.',
         category: 'Branding',
-        client: 'Monolith Co.',
-        year: '2023'
+        description: 'Brand identity for an architecture firm specializing in brutalist design. The identity mirrors their philosophy — bold, structural, unapologetic. We created a visual system built on geometric precision, raw materials, and the power of negative space.',
+        role: 'Brand Identity, Print Design, Environmental Graphics',
+        year: '2023',
+        team: 'VNYX Creative Team',
+        heroGradient: 'linear-gradient(135deg, #141414 0%, #0b0b0b 40%, #171717 100%)',
+        gallery: [
+            { icon: '□', class: 'gallery-item-wide' },
+            { icon: '△', class: '' },
+            { icon: '◆', class: '' },
+            { icon: '○', class: 'gallery-item-tall' },
+            { icon: '◇', class: 'gallery-item-wide' },
+            { icon: '⬡', class: '' },
+        ]
     },
     6: {
         title: 'Shadow App',
-        description: 'A dark-mode-first mobile application for productivity. Every pixel crafted for minimal eye strain and maximum focus.',
         category: 'UI/UX Design',
-        client: 'Shadow Inc.',
-        year: '2024'
+        description: 'A dark-mode-first mobile application for productivity and deep focus. Every pixel was crafted for minimal eye strain and maximum clarity. We designed an entire design system from scratch — components, tokens, and patterns — that scales beautifully across platforms.',
+        role: 'Product Design, Design System, Prototyping',
+        year: '2024',
+        team: 'VNYX Digital Team',
+        heroGradient: 'linear-gradient(135deg, #0e0e0e 0%, #161616 40%, #0a0a0a 100%)',
+        gallery: [
+            { icon: '◇', class: '' },
+            { icon: '□', class: 'gallery-item-wide' },
+            { icon: '◆', class: 'gallery-item-tall' },
+            { icon: '△', class: '' },
+            { icon: '○', class: '' },
+            { icon: '⬡', class: 'gallery-item-wide' },
+        ]
     }
 };
 
+function openCaseStudy(projectId) {
+    const project = projectData[projectId];
+    if (!project) return;
+
+    // Populate hero
+    caseStudyHero.style.background = project.heroGradient;
+    csCategory.textContent = project.category;
+    csTitle.textContent = project.title;
+
+    // Populate description
+    csDescription.innerHTML = `
+        <h3>About the Project</h3>
+        <p>${project.description}</p>
+    `;
+
+    // Populate credits
+    csCredits.innerHTML = `
+        <div class="credit-item">
+            <div class="credit-label">Role</div>
+            <div class="credit-value">${project.role}</div>
+        </div>
+        <div class="credit-item">
+            <div class="credit-label">Year</div>
+            <div class="credit-value">${project.year}</div>
+        </div>
+        <div class="credit-item">
+            <div class="credit-label">Team</div>
+            <div class="credit-value">${project.team}</div>
+        </div>
+    `;
+
+    // Populate gallery
+    let galleryHTML = '<h3 class="gallery-title">Project Gallery</h3><div class="gallery-grid">';
+    project.gallery.forEach(item => {
+        galleryHTML += `
+            <div class="gallery-item ${item.class}">
+                <div class="gallery-placeholder">
+                    <span>${item.icon}</span>
+                </div>
+            </div>
+        `;
+    });
+    galleryHTML += '</div>';
+    csGallery.innerHTML = galleryHTML;
+
+    // Scroll to top of case study
+    caseStudyScroll.scrollTop = 0;
+
+    // Open overlay
+    caseStudyOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCaseStudy() {
+    caseStudyOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Click handlers — both the arrow button AND the entire portfolio item open the case study
 document.querySelectorAll('.portfolio-view').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const projectId = btn.getAttribute('data-project');
-        if (projectId && projectData[projectId]) {
-            const project = projectData[projectId];
-            modalBody.innerHTML = `
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="modal-details-grid">
-                    <div>
-                        <div class="modal-detail-label">Category</div>
-                        <div class="modal-detail-value">${project.category}</div>
-                    </div>
-                    <div>
-                        <div class="modal-detail-label">Client</div>
-                        <div class="modal-detail-value">${project.client}</div>
-                    </div>
-                    <div>
-                        <div class="modal-detail-label">Year</div>
-                        <div class="modal-detail-value">${project.year}</div>
-                    </div>
-                </div>
-            `;
-            projectModal.classList.add('active');
+        openCaseStudy(projectId);
+    });
+});
+
+document.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const btn = item.querySelector('.portfolio-view');
+        if (btn) {
+            const projectId = btn.getAttribute('data-project');
+            openCaseStudy(projectId);
         }
     });
 });
 
-modalClose?.addEventListener('click', () => {
-    projectModal.classList.remove('active');
-});
-
-projectModal?.addEventListener('click', (e) => {
-    if (e.target === projectModal || e.target.classList.contains('modal-backdrop')) {
-        projectModal.classList.remove('active');
-    }
-});
+caseStudyClose?.addEventListener('click', closeCaseStudy);
 
 
 // ===== Contact Form =====
@@ -547,10 +654,11 @@ window.addEventListener('scroll', () => {
 
 // ===== Keyboard Navigation =====
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && projectModal.classList.contains('active')) {
-        projectModal.classList.remove('active');
+    if (e.key === 'Escape' && caseStudyOverlay.classList.contains('active')) {
+        closeCaseStudy();
     }
 });
 
 
 console.log('◆ VNYX Studio — Monochrome Kinetic Luxury loaded');
+

@@ -1153,111 +1153,369 @@ img {
     color: var(--text-muted);
 }
 
-/* ===== Project Modal ===== */
-.project-modal {
+/* ===== Case Study Overlay ===== */
+.case-study-overlay {
     position: fixed;
     inset: 0;
     z-index: 5000;
+    background: var(--bg-deep);
+    transform: translateY(100%);
+    transition: transform 0.7s var(--ease-out-expo);
+    overflow: hidden;
+}
+
+.case-study-overlay.active {
+    transform: translateY(0);
+}
+
+.case-study-scroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Close Button */
+.case-study-close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 5100;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--t-normal) ease;
-}
-
-.project-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-}
-
-.modal-content {
-    position: relative;
-    background: #111;
+    gap: 0.6rem;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(20px);
     border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    max-width: 600px;
-    width: 90%;
-    padding: 3rem;
-    transform: translateY(20px) scale(0.95);
-    transition: transform var(--t-normal) var(--ease-out-expo);
-}
-
-.project-modal.active .modal-content {
-    transform: translateY(0) scale(1);
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: var(--r-pill);
+    padding: 0.7rem 1.4rem;
     cursor: pointer;
-    transition: all var(--t-fast) ease;
+    transition: all var(--t-normal) var(--ease-out-expo);
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
-.modal-close svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--text-muted);
+.case-study-overlay.active .case-study-close {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
 }
 
-.modal-close:hover {
+.case-study-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-light);
+    transition: stroke var(--t-fast) ease;
+}
+
+.case-study-close span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color var(--t-fast) ease;
+}
+
+.case-study-close:hover {
     border-color: var(--text-white);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.modal-close:hover svg {
+.case-study-close:hover svg {
     stroke: var(--text-white);
 }
 
-.modal-body h3 {
+.case-study-close:hover span {
+    color: var(--text-white);
+}
+
+/* Hero Section */
+.case-study-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 450px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.case-study-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.case-study-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            var(--bg-deep) 0%,
+            rgba(5, 5, 5, 0.6) 40%,
+            rgba(5, 5, 5, 0.3) 100%);
+}
+
+.case-study-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.case-study-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: var(--r-pill);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out-expo) 0.3s;
+}
+
+.case-study-overlay.active .case-study-category {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.case-study-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     color: var(--text-white);
-    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s var(--ease-out-expo) 0.4s;
 }
 
-.modal-body p {
-    color: var(--text-body);
-    line-height: 1.7;
+.case-study-overlay.active .case-study-title {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.modal-details-grid {
+/* Body */
+.case-study-body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem;
+}
+
+/* Intro — Editorial two-column */
+.case-study-intro {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s var(--ease-out-expo) 0.5s;
 }
 
-.modal-detail-label {
-    font-size: 0.7rem;
+.case-study-overlay.active .case-study-intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.case-study-description h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.3rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
 }
 
-.modal-detail-value {
+.case-study-description p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    max-width: 640px;
+}
+
+/* Credits */
+.case-study-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 0.5rem;
+}
+
+.credit-item {
+    border-left: 1px solid var(--border);
+    padding-left: 1.5rem;
+}
+
+.credit-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.credit-value {
     font-size: 0.95rem;
     color: var(--text-white);
     font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Gallery — Masonry */
+.case-study-gallery {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s var(--ease-out-expo) 0.7s;
+}
+
+.case-study-overlay.active .case-study-gallery {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    grid-auto-flow: dense;
+    gap: 1rem;
+}
+
+.gallery-item {
+    border-radius: var(--r-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item-wide {
+    grid-column: span 2;
+}
+
+.gallery-item-tall {
+    grid-row: span 2;
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.04);
+    user-select: none;
+    transition: background 0.5s ease;
+}
+
+.gallery-placeholder:hover {
+    background: linear-gradient(145deg, #161616, #1e1e1e, #121212);
+}
+
+.gallery-item:nth-child(1) .gallery-placeholder {
+    background: linear-gradient(145deg, #111, #181818);
+}
+
+.gallery-item:nth-child(2) .gallery-placeholder {
+    background: linear-gradient(145deg, #141414, #0e0e0e);
+}
+
+.gallery-item:nth-child(3) .gallery-placeholder {
+    background: linear-gradient(145deg, #0f0f0f, #171717);
+}
+
+.gallery-item:nth-child(4) .gallery-placeholder {
+    background: linear-gradient(145deg, #161616, #101010);
+}
+
+.gallery-item:nth-child(5) .gallery-placeholder {
+    background: linear-gradient(145deg, #121212, #1a1a1a);
+}
+
+.gallery-item:nth-child(6) .gallery-placeholder {
+    background: linear-gradient(145deg, #0d0d0d, #151515);
+}
+
+/* Responsive — Case Study */
+@media (max-width: 768px) {
+    .case-study-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .case-study-hero-content {
+        padding: 2rem;
+    }
+
+    .case-study-body {
+        padding: 2rem;
+    }
+
+    .case-study-intro {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+    }
+
+    .gallery-item-wide {
+        grid-column: span 1;
+    }
+
+    .case-study-close {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .case-study-close span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-study-hero {
+        height: 40vh;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+    }
+
+    .gallery-item-wide,
+    .gallery-item-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 }
 
 /* ===== Back to Top ===== */
