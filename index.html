@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VNYX Studio — Premium Visual Agency. We craft extraordinary digital experiences through bold design and cinematic storytelling.">
+    <title>VNYX Studio — Monochrome Kinetic Luxury</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Three.js Canvas (3D Background) -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- ===== LOADER ===== -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-brand">
+                <span class="loader-v">V</span>
+                <span class="loader-n">N</span>
+                <span class="loader-y">Y</span>
+                <span class="loader-x">X</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <p class="loader-tagline">Crafting Visual Excellence</p>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">VNYX</span>
+                <span class="logo-dot"></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Work</a>
+                <a href="#testimonials" class="nav-link">Clients</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Visual Agency — Est. 2024</div>
+            <h1 class="hero-title">
+                <span class="hero-line">We Design</span>
+                <span class="hero-line hero-line-outline">Experiences</span>
+                <span class="hero-line">That <em>Move</em></span>
+            </h1>
+            <p class="hero-subtitle">
+                Bold visual storytelling for brands that refuse to blend in. 
+                We craft cinematic digital identities that command attention.
+            </p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn btn-primary">
+                    <span>View Our Work</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="150">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="48">0</span>
+                    <span class="stat-label">Clients</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="12">0</span>
+                    <span class="stat-label">Awards</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Expertise</h2>
+                <p class="section-subtitle">We don't just design — we architect visual experiences that define brands.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="6" y="6" width="36" height="36" rx="4"/>
+                            <path d="M6 18h36M18 18v24"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Brand Identity</h3>
+                    <p class="service-desc">Complete visual identity systems — logos, typography, color, and guidelines that make your brand unmistakable.</p>
+                    <span class="service-number">01</span>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="4" y="8" width="40" height="28" rx="3"/>
+                            <path d="M4 36h40M16 36v4M32 36v4M12 40h24"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">UI/UX Design</h3>
+                    <p class="service-desc">Interfaces that feel intuitive and look extraordinary. Web apps, mobile, and digital products.</p>
+                    <span class="service-number">02</span>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="24" cy="24" r="18"/>
+                            <polygon points="20,16 34,24 20,32"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Motion & 3D</h3>
+                    <p class="service-desc">Cinematic motion graphics, 3D visualization, and animated content that breathes life into your story.</p>
+                    <span class="service-number">03</span>
+                </div>
+                <div class="service-card" data-reveal>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M24 4L4 14v20l20 10 20-10V14L24 4z"/>
+                            <path d="M4 14l20 10M24 24v20M44 14L24 24"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Creative Direction</h3>
+                    <p class="service-desc">Strategic visual consulting for campaigns, launches, and brand transformations that demand impact.</p>
+                    <span class="service-number">04</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Selected Work</span>
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">A curated selection of projects where vision meets execution.</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+                <button class="filter-btn" data-filter="motion">Motion</button>
+                <button class="filter-btn" data-filter="3d">3D</button>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Item 1 - Large -->
+                <div class="portfolio-item portfolio-item-lg" data-category="branding" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">◆</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Branding</span>
+                                <h4 class="portfolio-name">Obsidian Luxury</h4>
+                                <p class="portfolio-tagline">Premium lifestyle rebrand</p>
+                            </div>
+                            <button class="portfolio-view" data-project="1">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="portfolio-item" data-category="ui-ux" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">◇</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">UI/UX</span>
+                                <h4 class="portfolio-name">Noir Finance</h4>
+                                <p class="portfolio-tagline">Fintech dashboard</p>
+                            </div>
+                            <button class="portfolio-view" data-project="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="portfolio-item" data-category="motion" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">△</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Motion</span>
+                                <h4 class="portfolio-name">Kinetic Reel</h4>
+                                <p class="portfolio-tagline">Showreel 2024</p>
+                            </div>
+                            <button class="portfolio-view" data-project="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 - Large -->
+                <div class="portfolio-item portfolio-item-lg" data-category="3d" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">⬡</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">3D</span>
+                                <h4 class="portfolio-name">Vertex Studio</h4>
+                                <p class="portfolio-tagline">3D product visualization</p>
+                            </div>
+                            <button class="portfolio-view" data-project="4">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="portfolio-item" data-category="branding" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">○</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Branding</span>
+                                <h4 class="portfolio-name">Monolith Co.</h4>
+                                <p class="portfolio-tagline">Architecture firm identity</p>
+                            </div>
+                            <button class="portfolio-view" data-project="5">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="portfolio-item" data-category="ui-ux" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">□</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">UI/UX</span>
+                                <h4 class="portfolio-name">Shadow App</h4>
+                                <p class="portfolio-tagline">Dark-mode-first mobile app</p>
+                            </div>
+                            <button class="portfolio-view" data-project="6">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Client Voices</span>
+                <h2 class="section-title">What They Say</h2>
+            </div>
+            <div class="testimonials-wrapper">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card" data-reveal>
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">VNYX transformed our brand into something we didn't think was possible. The attention to detail is otherworldly.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-info">
+                                <h5 class="author-name">Andi Raharjo</h5>
+                                <span class="author-role">CEO, Obsidian Luxury</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-reveal>
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">Working with VNYX felt like collaborating with artists who happen to understand business. The result speaks for itself.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DW</div>
+                            <div class="author-info">
+                                <h5 class="author-name">Dian Wulandari</h5>
+                                <span class="author-role">Founder, Noir Finance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-reveal>
+                        <div class="testimonial-quote">"</div>
+                        <p class="testimonial-text">They don't just design — they create experiences. Our conversion rate jumped 340% after the redesign.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">BK</div>
+                            <div class="author-info">
+                                <h5 class="author-name">Bayu Kusumo</h5>
+                                <span class="author-role">CTO, Vertex Studio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-btn" id="prevTestimonial" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button class="testimonial-btn" id="nextTestimonial" aria-label="Next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info" data-reveal>
+                    <span class="section-tag">Let's Talk</span>
+                    <h2 class="section-title" style="text-align:left;">Start a Project</h2>
+                    <p class="contact-desc">Have a vision? We'll bring it to life. Drop us a line and let's create something extraordinary together.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span>hello@vnyx.studio</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Behance">BE</a>
+                        <a href="#" class="social-link" aria-label="Dribbble">DR</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">LN</a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" data-reveal>
+                    <div class="form-group">
+                        <input type="text" name="name" id="formName" placeholder=" " required>
+                        <label for="formName">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="formEmail" placeholder=" " required>
+                        <label for="formEmail">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <select name="service" id="formService" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="branding">Brand Identity</option>
+                            <option value="ui-ux">UI/UX Design</option>
+                            <option value="motion">Motion & 3D</option>
+                            <option value="creative">Creative Direction</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="formMessage" rows="4" placeholder=" " required></textarea>
+                        <label for="formMessage">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">VNYX</span>
+                    <span class="logo-dot"></span>
+                    <p class="footer-tagline">Crafting visual excellence since 2024.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VNYX Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
