@@ -182,8 +182,8 @@ initThreeJS();
 // ===== DOM Elements =====
 const loader = document.getElementById('loader');
 const navbar = document.getElementById('navbar');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+const menuTrigger = document.getElementById('menuTrigger');
+const fullscreenMenu = document.getElementById('fullscreenMenu');
 const cursorFollower = document.getElementById('cursorFollower');
 const portfolioGrid = document.getElementById('portfolioGrid');
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -252,32 +252,28 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile Nav
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
+// Fullscreen Menu Toggle
+menuTrigger.addEventListener('click', () => {
+    const isOpen = fullscreenMenu.classList.contains('active');
+    if (isOpen) {
+        fullscreenMenu.classList.remove('active');
+        menuTrigger.classList.remove('active');
+        document.body.style.overflow = '';
+    } else {
+        fullscreenMenu.classList.add('active');
+        menuTrigger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 });
 
-document.querySelectorAll('.nav-link').forEach(link => {
+// Close menu on anchor link click (except external links like initiatives.html)
+document.querySelectorAll('.menu-item').forEach(link => {
     link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
-
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 150;
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            if (navLink) navLink.classList.add('active');
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            fullscreenMenu.classList.remove('active');
+            menuTrigger.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 });
@@ -658,6 +654,203 @@ document.addEventListener('keydown', (e) => {
         closeCaseStudy();
     }
 });
+
+
+// ===== Selected Works — Hover-Reveal Preview =====
+document.querySelectorAll('.sw-item').forEach(item => {
+    const preview = item.querySelector('.sw-preview');
+    if (!preview) return;
+
+    item.addEventListener('mousemove', (e) => {
+        preview.style.left = (e.clientX + 20) + 'px';
+        preview.style.top = (e.clientY - 110) + 'px';
+    });
+});
+
+
+// ===== Selected Works — Parallax Scroll =====
+(function () {
+    const swItems = document.querySelectorAll('.sw-item[data-reveal]');
+    if (swItems.length === 0) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        swItems.forEach((item, i) => {
+            const rect = item.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const viewH = window.innerHeight;
+            // Only apply parallax when item is in/near viewport
+            if (center > -200 && center < viewH + 200) {
+                const offset = (center - viewH / 2) * (0.03 + i * 0.01);
+                item.style.transform = `translateY(${offset}px)`;
+            }
+        });
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+
+
+// ===== i18n Translation System =====
+const translations = {
+    en: {
+        // Hero
+        'hero.tag': 'Visual Agency — Est. 2024',
+        'hero.line1': 'We Design',
+        'hero.line2': 'Experiences',
+        'hero.line3': 'That <em>Move</em>',
+        'hero.subtitle': 'Bold visual storytelling for brands that refuse to blend in. We craft cinematic digital identities that command attention.',
+        'hero.cta1': 'View Our Work',
+        'hero.cta2': 'Get In Touch',
+        'hero.stat1': 'Projects',
+        'hero.stat2': 'Clients',
+        'hero.stat3': 'Awards',
+        'hero.scroll': 'Scroll',
+
+        // Selected Works
+        'sw.tag': 'Featured Projects',
+        'sw.title': 'Selected Works',
+        'sw.cta': 'VIEW ALL WORKS',
+
+        // Services
+        'svc.tag': 'What We Do',
+        'svc.title': 'Our Expertise',
+        'svc.subtitle': 'We don\'t just design — we architect visual experiences that define brands.',
+        'svc.s1.title': 'Brand Identity',
+        'svc.s1.desc': 'Complete visual identity systems — logos, typography, color, and guidelines that make your brand unmistakable.',
+        'svc.s2.title': 'UI/UX Design',
+        'svc.s2.desc': 'Interfaces that feel intuitive and look extraordinary. Web apps, mobile, and digital products.',
+        'svc.s3.title': 'Motion & 3D',
+        'svc.s3.desc': 'Cinematic motion graphics, 3D visualization, and animated content that breathes life into your story.',
+        'svc.s4.title': 'Creative Direction',
+        'svc.s4.desc': 'Strategic visual consulting for campaigns, launches, and brand transformations that demand impact.',
+
+        // Testimonials
+        'testi.tag': 'Client Voices',
+        'testi.title': 'What They Say',
+        'testi.t1': 'VNYX transformed our brand into something we didn\'t think was possible. The attention to detail is otherworldly.',
+        'testi.t2': 'Working with VNYX felt like collaborating with artists who happen to understand business. The result speaks for itself.',
+        'testi.t3': 'They don\'t just design — they create experiences. Our conversion rate jumped 340% after the redesign.',
+
+        // Contact
+        'contact.tag': 'Let\'s Talk',
+        'contact.title': 'Start a Project',
+        'contact.desc': 'Have a vision? We\'ll bring it to life. Drop us a line and let\'s create something extraordinary together.',
+        'contact.name': 'Your Name',
+        'contact.email': 'Your Email',
+        'contact.message': 'Your Message',
+        'contact.send': 'Send Message',
+
+        // Footer
+        'footer.tagline': 'Crafting visual excellence since 2024.',
+        'footer.copy': '© 2024 VNYX Studio. All rights reserved.',
+    },
+    id: {
+        // Hero
+        'hero.tag': 'Agensi Visual — Est. 2024',
+        'hero.line1': 'Kami Mendesain',
+        'hero.line2': 'Pengalaman',
+        'hero.line3': 'Yang <em>Menggerakkan</em>',
+        'hero.subtitle': 'Visual storytelling yang berani untuk brand yang menolak tampil biasa. Kami menciptakan identitas digital sinematik yang menarik perhatian.',
+        'hero.cta1': 'Lihat Karya Kami',
+        'hero.cta2': 'Hubungi Kami',
+        'hero.stat1': 'Proyek',
+        'hero.stat2': 'Klien',
+        'hero.stat3': 'Penghargaan',
+        'hero.scroll': 'Gulir',
+
+        // Selected Works
+        'sw.tag': 'Proyek Unggulan',
+        'sw.title': 'Karya Pilihan',
+        'sw.cta': 'LIHAT SEMUA KARYA',
+
+        // Services
+        'svc.tag': 'Apa yang Kami Lakukan',
+        'svc.title': 'Keahlian Kami',
+        'svc.subtitle': 'Kami tidak sekadar mendesain — kami merancang pengalaman visual yang mendefinisikan brand.',
+        'svc.s1.title': 'Identitas Brand',
+        'svc.s1.desc': 'Sistem identitas visual lengkap — logo, tipografi, warna, dan panduan yang membuat brand Anda tak terlupakan.',
+        'svc.s2.title': 'Desain UI/UX',
+        'svc.s2.desc': 'Antarmuka yang terasa intuitif dan tampil luar biasa. Aplikasi web, mobile, dan produk digital.',
+        'svc.s3.title': 'Motion & 3D',
+        'svc.s3.desc': 'Motion graphics sinematik, visualisasi 3D, dan konten animasi yang menghidupkan cerita Anda.',
+        'svc.s4.title': 'Arahan Kreatif',
+        'svc.s4.desc': 'Konsultasi visual strategis untuk kampanye, peluncuran, dan transformasi brand yang menuntut dampak.',
+
+        // Testimonials
+        'testi.tag': 'Suara Klien',
+        'testi.title': 'Kata Mereka',
+        'testi.t1': 'VNYX mengubah brand kami menjadi sesuatu yang tidak kami kira mungkin. Perhatian terhadap detail sungguh luar biasa.',
+        'testi.t2': 'Bekerja dengan VNYX terasa seperti berkolaborasi dengan seniman yang memahami bisnis. Hasilnya berbicara sendiri.',
+        'testi.t3': 'Mereka tidak sekadar mendesain — mereka menciptakan pengalaman. Tingkat konversi kami melonjak 340% setelah redesain.',
+
+        // Contact
+        'contact.tag': 'Mari Bicara',
+        'contact.title': 'Mulai Proyek',
+        'contact.desc': 'Punya visi? Kami akan mewujudkannya. Kirim pesan dan mari ciptakan sesuatu yang luar biasa bersama.',
+        'contact.name': 'Nama Anda',
+        'contact.email': 'Email Anda',
+        'contact.message': 'Pesan Anda',
+        'contact.send': 'Kirim Pesan',
+
+        // Footer
+        'footer.tagline': 'Menciptakan keunggulan visual sejak 2024.',
+        'footer.copy': '© 2024 VNYX Studio. Hak cipta dilindungi.',
+    }
+};
+
+function applyLanguage(lang) {
+    const dict = translations[lang];
+    if (!dict) return;
+
+    // Text content swaps
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+            el.textContent = dict[key];
+        }
+    });
+
+    // HTML content swaps (for elements with <em>, <strong>, etc.)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) {
+            el.innerHTML = dict[key];
+        }
+    });
+
+    document.documentElement.setAttribute('lang', lang);
+}
+
+// Language Switcher — click handlers
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.getAttribute('data-lang');
+        localStorage.setItem('vnyx-lang', lang);
+        applyLanguage(lang);
+    });
+});
+
+// Restore saved language preference on load
+(function () {
+    const savedLang = localStorage.getItem('vnyx-lang');
+    if (savedLang && savedLang !== 'en') {
+        document.querySelectorAll('.lang-btn').forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-lang') === savedLang);
+        });
+        applyLanguage(savedLang);
+    }
+})();
 
 
 console.log('◆ VNYX Studio — Monochrome Kinetic Luxury loaded');

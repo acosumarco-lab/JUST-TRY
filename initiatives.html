@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VNYX Studio — Initiatives. Experimental projects from our creative lab.">
+    <title>Initiatives — VNYX Studio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="initiatives.css">
+</head>
+
+<body>
+    <!-- Cursor Follower -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar initiatives-navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="navLogo">
+                <span class="logo-text">VNYX</span>
+                <span class="logo-dot"></span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="work.html" class="nav-link">Work</a>
+                    <a href="initiatives.html" class="nav-link active">Initiatives</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="id">ID</button>
+                </div>
+                <button class="menu-trigger" id="menuTrigger" aria-label="Open menu">
+                    <span class="menu-trigger-line"></span>
+                    <span class="menu-trigger-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== FULLSCREEN MENU ===== -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="fullscreen-menu-bg"></div>
+        <div class="fullscreen-menu-content">
+            <div class="menu-items">
+                <a href="index.html" class="menu-item" data-index="1">
+                    <span class="menu-item-number">01</span>
+                    <span class="menu-item-text">Home</span>
+                </a>
+                <a href="work.html" class="menu-item" data-index="2">
+                    <span class="menu-item-number">02</span>
+                    <span class="menu-item-text">Work</span>
+                </a>
+                <a href="initiatives.html" class="menu-item" data-index="3">
+                    <span class="menu-item-number">03</span>
+                    <span class="menu-item-text">Initiatives</span>
+                </a>
+                <a href="index.html#contact" class="menu-item" data-index="4">
+                    <span class="menu-item-number">04</span>
+                    <span class="menu-item-text">Contact</span>
+                </a>
+            </div>
+            <div class="menu-footer">
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Email</span>
+                    <span class="menu-footer-value">hello@vnyx.studio</span>
+                </div>
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Location</span>
+                    <span class="menu-footer-value">Jakarta, ID</span>
+                </div>
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Socials</span>
+                    <div class="menu-footer-socials">
+                        <a href="#">IG</a>
+                        <a href="#">BE</a>
+                        <a href="#">DR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HORIZONTAL SCROLL CONTAINER ===== -->
+    <div class="hz-container" id="hzContainer">
+        <div class="hz-track" id="hzTrack">
+
+            <!-- INTRO PANEL -->
+            <section class="hz-panel hz-intro">
+                <div class="hz-intro-content">
+                    <span class="hz-label" data-i18n="init.header.tag">Creative Lab</span>
+                    <h1 class="hz-title">
+                        <span class="hz-title-line">Init<em>iatives</em></span>
+                    </h1>
+                    <p class="hz-subtitle" data-i18n="init.header.subtitle">Experimental projects born from curiosity.
+                        No clients. No briefs. Just raw
+                        creative exploration from our studio playground.</p>
+                    <div class="scroll-hint" id="scrollHint">
+                        <span>Scroll to explore</span>
+                        <svg width="32" height="12" viewBox="0 0 32 12" fill="none">
+                            <path d="M0 6H28M28 6L22 1M28 6L22 11" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== CARD 1 — TEMPLATE A: CINEMATIC (Tall Portrait) ===== -->
+            <article class="hz-panel hz-cinematic" data-card="1">
+                <div class="hz-cinematic-visual">
+                    <div class="hz-cinematic-placeholder">
+                        <span class="hz-card-icon">◆</span>
+                        <div class="hz-cinematic-grain"></div>
+                    </div>
+                    <div class="hz-cinematic-caption">
+                        <span class="hz-cinematic-number">01</span>
+                        <h2 class="hz-cinematic-title">Type Distortion</h2>
+                        <span class="hz-card-tags">Typography · Generative · WebGL</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CARD 2 — TEMPLATE B: MANIFESTO (Square, Typography) ===== -->
+            <article class="hz-panel hz-manifesto" data-card="2">
+                <div class="hz-manifesto-block">
+                    <div class="hz-manifesto-inner">
+                        <span class="hz-manifesto-number">02</span>
+                        <div class="hz-marquee-wrapper">
+                            <div class="hz-marquee">
+                                <span class="hz-marquee-text">VOID LANDSCAPES — PROCEDURAL TERRAIN — DIGITAL WILDERNESS
+                                    — INFINITE WORLDS — </span>
+                                <span class="hz-marquee-text">VOID LANDSCAPES — PROCEDURAL TERRAIN — DIGITAL WILDERNESS
+                                    — INFINITE WORLDS — </span>
+                            </div>
+                        </div>
+                        <div class="hz-manifesto-content">
+                            <h2 class="hz-manifesto-title">Every reload<br>creates a world<br>that never existed.</h2>
+                            <span class="hz-card-tags">3D · Procedural · Three.js</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CARD 3 — TEMPLATE C: SPLIT (Wide Blueprint) ===== -->
+            <article class="hz-panel hz-split" data-card="3">
+                <div class="hz-split-container">
+                    <div class="hz-split-left">
+                        <div class="hz-split-visual">
+                            <div class="hz-split-placeholder">
+                                <span class="hz-card-icon">○</span>
+                            </div>
+                        </div>
+                        <span class="hz-split-label">Result</span>
+                    </div>
+                    <div class="hz-split-right">
+                        <div class="hz-split-header">
+                            <span class="hz-split-number">03</span>
+                            <h2 class="hz-split-title">Pulse Grid</h2>
+                        </div>
+                        <p class="hz-split-desc">A reactive grid installation where 10,000 dots breathe, ripple, and
+                            pulse in response to ambient microphone input in real time.</p>
+                        <div class="hz-split-code">
+                            <div class="hz-code-header">
+                                <span class="hz-code-dot"></span>
+                                <span class="hz-code-dot"></span>
+                                <span class="hz-code-dot"></span>
+                                <span class="hz-code-filename">pulse.config</span>
+                            </div>
+                            <pre class="hz-code-block"><code>grid_size    : 100 × 100
+particles    : 10,000
+input        : microphone (FFT)
+render       : canvas 2D
+fps_target   : 60
+decay        : 0.94
+ripple_speed : 2.4px/frame</code></pre>
+                        </div>
+                        <span class="hz-card-tags">Installation · Audio · Canvas</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CARD 4 — TEMPLATE A: CINEMATIC (Tall Portrait) ===== -->
+            <article class="hz-panel hz-cinematic" data-card="4">
+                <div class="hz-cinematic-visual">
+                    <div class="hz-cinematic-placeholder">
+                        <span class="hz-card-icon">⬡</span>
+                        <div class="hz-cinematic-grain"></div>
+                    </div>
+                    <div class="hz-cinematic-caption">
+                        <span class="hz-cinematic-number">04</span>
+                        <h2 class="hz-cinematic-title">Liquid Forms</h2>
+                        <span class="hz-card-tags">Motion · Fluid Sim · Experiment</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== CARD 5 — TEMPLATE B: MANIFESTO (Square, Typography) ===== -->
+            <article class="hz-panel hz-manifesto" data-card="5">
+                <div class="hz-manifesto-block">
+                    <div class="hz-manifesto-inner">
+                        <span class="hz-manifesto-number">05</span>
+                        <div class="hz-marquee-wrapper">
+                            <div class="hz-marquee hz-marquee-reverse">
+                                <span class="hz-marquee-text">SHADOW PLAY — CSS ONLY — ZERO JAVASCRIPT — LIGHT & DARK —
+                                    PURE CRAFT — </span>
+                                <span class="hz-marquee-text">SHADOW PLAY — CSS ONLY — ZERO JAVASCRIPT — LIGHT & DARK —
+                                    PURE CRAFT — </span>
+                            </div>
+                        </div>
+                        <div class="hz-manifesto-content">
+                            <h2 class="hz-manifesto-title">Shadows are<br>the architecture<br>of absence.</h2>
+                            <span class="hz-card-tags">CSS Art · Interactive · Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- END PANEL -->
+            <section class="hz-panel hz-end">
+                <div class="hz-end-content">
+                    <h2 class="hz-end-title">Want to<br>collaborate?</h2>
+                    <a href="index.html#contact" class="btn btn-primary">
+                        <span>Get in Touch</span>
+                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="index.html" class="hz-back-link">← Back to Main</a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="hz-progress" id="hzProgress">
+        <div class="hz-progress-fill" id="hzProgressFill"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="initiatives.js"></script>
+</body>
+
+</html>

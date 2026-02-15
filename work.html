@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — VNYX Studio</title>
+    <meta name="description"
+        content="VNYX Studio portfolio — a curated selection of branding, UI/UX, motion, and 3D projects.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="work.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="navLogo">
+                <span class="logo-text">VNYX</span>
+                <span class="logo-dot"></span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="work.html" class="nav-link active">Work</a>
+                    <a href="initiatives.html" class="nav-link">Initiatives</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="id">ID</button>
+                </div>
+                <button class="menu-trigger" id="menuTrigger" aria-label="Open menu">
+                    <span class="menu-trigger-line"></span>
+                    <span class="menu-trigger-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== FULLSCREEN MENU ===== -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="fullscreen-menu-bg"></div>
+        <div class="fullscreen-menu-content">
+            <div class="menu-items">
+                <a href="index.html" class="menu-item" data-index="1">
+                    <span class="menu-item-number">01</span>
+                    <span class="menu-item-text">Home</span>
+                </a>
+                <a href="work.html" class="menu-item active" data-index="2">
+                    <span class="menu-item-number">02</span>
+                    <span class="menu-item-text">Work</span>
+                </a>
+                <a href="initiatives.html" class="menu-item" data-index="3">
+                    <span class="menu-item-number">03</span>
+                    <span class="menu-item-text">Initiatives</span>
+                </a>
+                <a href="index.html#contact" class="menu-item" data-index="4">
+                    <span class="menu-item-number">04</span>
+                    <span class="menu-item-text">Contact</span>
+                </a>
+            </div>
+            <div class="menu-footer">
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Email</span>
+                    <span class="menu-footer-value">hello@vnyx.studio</span>
+                </div>
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Location</span>
+                    <span class="menu-footer-value">Jakarta, ID</span>
+                </div>
+                <div class="menu-footer-col">
+                    <span class="menu-footer-label">Socials</span>
+                    <div class="menu-footer-socials">
+                        <a href="#">IG</a>
+                        <a href="#">BE</a>
+                        <a href="#">DR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== WORK HERO ===== -->
+    <section class="work-hero">
+        <div class="container">
+            <span class="section-tag work-tag" data-i18n="work.tag">Portfolio</span>
+            <h1 class="work-hero-title" data-i18n-html="work.hero.title">Selected<br><em>Work</em></h1>
+            <p class="work-hero-subtitle" data-i18n="work.hero.subtitle">A curated showcase of projects where vision
+                meets execution. Each piece
+                represents a unique challenge solved through design.</p>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO GRID ===== -->
+    <section class="section work-portfolio">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+                <button class="filter-btn" data-filter="motion">Motion</button>
+                <button class="filter-btn" data-filter="3d">3D</button>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Item 1 - Large -->
+                <div class="portfolio-item portfolio-item-lg" data-category="branding" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">◆</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Branding</span>
+                                <h4 class="portfolio-name">Obsidian Luxury</h4>
+                                <p class="portfolio-tagline">Premium lifestyle rebrand</p>
+                            </div>
+                            <button class="portfolio-view" data-project="1">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="portfolio-item" data-category="ui-ux" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">◇</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">UI/UX</span>
+                                <h4 class="portfolio-name">Noir Finance</h4>
+                                <p class="portfolio-tagline">Fintech dashboard</p>
+                            </div>
+                            <button class="portfolio-view" data-project="2">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="portfolio-item" data-category="motion" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">△</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Motion</span>
+                                <h4 class="portfolio-name">Kinetic Reel</h4>
+                                <p class="portfolio-tagline">Showreel 2024</p>
+                            </div>
+                            <button class="portfolio-view" data-project="3">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 - Large -->
+                <div class="portfolio-item portfolio-item-lg" data-category="3d" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">⬡</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">3D</span>
+                                <h4 class="portfolio-name">Vertex Studio</h4>
+                                <p class="portfolio-tagline">3D product visualization</p>
+                            </div>
+                            <button class="portfolio-view" data-project="4">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="portfolio-item" data-category="branding" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">○</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">Branding</span>
+                                <h4 class="portfolio-name">Monolith Co.</h4>
+                                <p class="portfolio-tagline">Architecture firm identity</p>
+                            </div>
+                            <button class="portfolio-view" data-project="5">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="portfolio-item" data-category="ui-ux" data-reveal>
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <span class="placeholder-icon">□</span>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <span class="portfolio-category">UI/UX</span>
+                                <h4 class="portfolio-name">Shadow App</h4>
+                                <p class="portfolio-tagline">Dark-mode-first mobile app</p>
+                            </div>
+                            <button class="portfolio-view" data-project="6">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">VNYX</span>
+                    <span class="logo-dot"></span>
+                    <p class="footer-tagline" data-i18n="footer.tagline">Crafting visual excellence since 2024.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="work.html">Work</a>
+                    <a href="initiatives.html">Initiatives</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copy">&copy; 2024 VNYX Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Overlay -->
+    <div class="case-study-overlay" id="caseStudyOverlay">
+        <button class="case-study-close" id="caseStudyClose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+            <span>Close</span>
+        </button>
+        <div class="case-study-scroll" id="caseStudyScroll">
+            <div class="case-study-hero" id="caseStudyHero">
+                <div class="case-study-hero-overlay"></div>
+                <div class="case-study-hero-content">
+                    <span class="case-study-category" id="csCategory"></span>
+                    <h1 class="case-study-title" id="csTitle"></h1>
+                </div>
+            </div>
+            <div class="case-study-body">
+                <div class="case-study-intro">
+                    <div class="case-study-description" id="csDescription"></div>
+                    <div class="case-study-credits" id="csCredits"></div>
+                </div>
+                <div class="case-study-gallery" id="csGallery"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="work.js"></script>
+</body>
+
+</html>
